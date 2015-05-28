@@ -1,11 +1,11 @@
 var romNum = function(number) {
   var numArray = number.toString(10).split("").map(function(t){return parseInt(t)})
   numArray.reverse()
-  // debugger;
   var ones = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"]
   var tens = ["X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC"]
   var hundreds = ["C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM"]
-  var romArray = ["M", "MM", "MMM"]
+  var thousands = ["M", "MM", "MMM"]
+  var romArray = []
 
   for (var x=0; x < numArray.length; x++) {
     var arrayLength = x
@@ -17,7 +17,6 @@ var romNum = function(number) {
           console.log (0);
         } else {
           var convertNum = ( onesPlace - 1);
-          // romanOne = ones[convertNum]
           romArray.splice(0, 0,ones[convertNum]);
         }
         break;
@@ -26,14 +25,28 @@ var romNum = function(number) {
       if (tensPlace === 0) {
         console.log (0);
       } else {
-
         var convertNum = (tensPlace - 1);
-        // romanTen = tens[convertNum]
-
         romArray.splice(1, 0,tens[convertNum]);
       }
       break;
-
+      case 2:
+        var hundredsPlace = numArray[2]
+      if (hundredsPlace === 0) {
+        console.log (0);
+      } else {
+        var convertNum = (hundredsPlace - 1);
+        romArray.splice(2, 0,hundreds[convertNum]);
+      }
+      break;
+      case 3:
+        var thousandsPlace = numArray[3]
+      if (thousandsPlace === 0) {
+        console.log (0);
+      } else {
+        var convertNum = (thousandsPlace - 1);
+        romArray.splice(3, 0,thousands[convertNum]);
+      }
+      break;
     }
   }
 
