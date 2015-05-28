@@ -26,5 +26,11 @@ describe('romNum', function() {
   it("will return MMMCMXCIX for 3999", function() {
     expect(romNum(3999)).to.equal("MMMCMXCIX")
   });
+  it("will return error for 0", function() {
+    expect(romNum(0)).to.equal("There is no 0 in Rome")
+  });
+  it("will return error for 4000", function() {
+    expect(romNum(4000)).to.equal("Rome can not count higher than 3999")
+  });
 
 });

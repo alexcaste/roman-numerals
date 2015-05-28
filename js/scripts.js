@@ -7,6 +7,12 @@ var romNum = function(number) {
   var thousands = ["M", "MM", "MMM"]
   var romArray = []
 
+if (number <= 0) {
+  return "There is no 0 in Rome"
+} else if (number > 3999) {
+  return "Rome can not count higher than 3999"
+} else {
+
   for (var x=0; x < numArray.length; x++) {
     var arrayLength = x
 
@@ -49,7 +55,7 @@ var romNum = function(number) {
       break;
     }
   }
-
+}
   romArray.reverse();
   return romArray.join("")
 };
