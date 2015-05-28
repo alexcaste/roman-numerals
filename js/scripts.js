@@ -1,6 +1,6 @@
 var romNum = function(number) {
-  var numArray = number.toString(10).split("").map(function(t){return parseInt(t)})
-  numArray.reverse()
+  var numArray = number.toString(10).split("").map(function(t){return parseInt(t)});
+  numArray.reverse();
   var ones = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"]
   var tens = ["X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC"]
   var hundreds = ["C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM"]
@@ -8,9 +8,9 @@ var romNum = function(number) {
   var romArray = []
 
 if (number <= 0) {
-  return "There is no 0 in Rome"
+  return "There is no 0 in Rome";
 } else if (number > 3999) {
-  return "Rome can not count higher than 3999"
+  return "Rome can not count higher than 3999";
 } else {
 
   for (var x=0; x < numArray.length; x++) {
@@ -57,5 +57,19 @@ if (number <= 0) {
   }
 }
   romArray.reverse();
-  return romArray.join("")
+  return romArray.join("");
 };
+
+
+$(document).ready(function() {
+  $("form#roman").submit(function(event) {
+    $(".user").empty();
+    var user = parseInt($("input#user").val());
+    var result = romNum(user);
+
+    $(".result").text(result);
+    $("#result").show();
+
+    event.preventDefault();
+  });
+});
